@@ -1,0 +1,134 @@
+%box-shadow
+  -webkit-box-shadow: 17px 24px 88px -4px rgba(94,66,153,1)
+  -moz-box-shadow: 17px 24px 88px -4px rgba(94,66,153,1)
+  box-shadow: 17px 24px 88px -4px rgba(94,66,153,1)
+
+body
+  background-color: #B5C4F6
+  font-family: 'Roboto', sans-serif
+  color: #292f33
+
+.title
+  font-weight: bold
+
+.container
+  height: 100vh
+  width: 100vw
+  display: grid
+  grid-template-columns: 1fr 1fr [sidebar1] 300px [sidebar2] repeat(20, 1fr)
+  grid-template-rows: repeat(15, 1fr)
+
+.sidebar
+  @extend %box-shadow
+  grid-area: 2 / sidebar1 / 15 / sidebar2
+  background-color: white
+
+.background
+  @extend %box-shadow
+  grid-area: 3 / 2 / 14 / 23
+  background-color: #8089D7
+
+.item-container
+
+  padding: 10px
+  display: grid
+  grid-template-columns: repeat(4,1fr)
+  grid-template-rows: repeat(3,1fr)
+  grid-auto-flow: row;
+  grid-area: 4 / 5 / 13 / 22
+  grid-column-gap: 10px
+  grid-row-gap: 10px
+
+.detail-item
+  grid-column-start: 1
+  grid-column-end: -1
+  grid-row-start: 1
+  grid-row-end: -1
+  font-weight: bold
+  font-size: large
+  display: flex
+  align-items: center
+  justify-content: center
+  text-decoration: none
+  color: #292f33
+  justify-self: center
+  align-self: center
+  width: 100%
+  height: 100%
+  background-color: white
+
+
+.item
+  font-weight: bold
+  font-size: large
+  display: flex
+  align-items: center
+  justify-content: center
+  text-decoration: none
+  color: #292f33
+  justify-self: center
+  align-self: center
+  width: 100%
+  height: 100%
+  background-color: white
+
+.item:hover
+  @extend %box-shadow
+
+
+.sidebar
+  display: grid
+  grid-template-columns: 100px 100px 100px
+  grid-template-rows: 25px 100px auto
+
+.profile
+  grid-area: 2 / 2 / 3 / 3
+  border-radius: 100%
+  width: 100px
+  height: 100px
+  animation-name: rotate
+  animation-duration: 4s
+  animation-iteration-count: infinite
+
+.sidebar-text
+  display: flex
+  flex-direction: column
+  grid-area: 3/ 1 / 4 / 4
+  padding: 10px
+  p
+    display: flex
+    justify-content: center
+.profile-bg
+  grid-area: 2 / 2 / 3 / 3
+
+@keyframes rotate
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)
+
+@media (max-width: 1200px)
+  .info
+    display: none!important
+  .sidebar
+    grid-template-columns: 10px 100px auto
+    grid-template-rows: 10px 30px 70px 10px
+    grid-area: 1 / 1 / 1 / 24
+  .background
+    grid-area: 2 / 1 / 15 / 24
+  .item-container
+    padding: 10px
+    grid-area: 2 / 1 / 15 / 24
+    grid-template-columns: repeat(1,1fr)
+    grid-template-rows: repeat(7,1fr)
+    .detail-item
+      grid-row-end: auto
+  .container
+    height: auto
+  .sidebar-text
+    grid-area: 2/ 3 / 4 / 4
+    display: flex
+    flex-direction: column
+    p
+      display: flex
+      justify-content: center
