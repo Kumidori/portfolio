@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import Sidebar from './Sidebar'
 import Items from './Items'
 import DetailItem from './DetailItem'
+import Exercise2 from './Exercise2'
 import {
     BrowserRouter as Router,
-    Route,
-    Link
+    Route
 } from 'react-router-dom'
 
 class App extends Component {
@@ -14,13 +13,11 @@ class App extends Component {
     return (
         <Router>
             <div className="container">
-                <div className="background animated slideInDown">
-                </div>
-                <Sidebar/>
-                    <Route exact path="/" component={Items} />
-                    <Route  path="/item/:name" component={DetailItem} />
+                <div className="background animated slideInDown"></div>
+                <Route exact path="/" component={Items} />
+                <Route  path="/item/:name" component={DetailItem} />
+                <Route  exact path="/exercise2" component={Exercise2} />
             </div>
-
         </Router>
     );
   }

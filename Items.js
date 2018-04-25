@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import Item from './Item'
+import Sidebar from "./Sidebar";
+import {
+    Link
+} from 'react-router-dom'
 
 class Items extends Component {
     constructor(){
@@ -29,9 +33,27 @@ class Items extends Component {
         console.log(myItems);
         let myItems = this.state.text.map((item) => <Item name={item}/>);
         return (
-            <div className="item-container animated slideInUp">
-                {myItems}
-            </div>
+            <React.Fragment>
+            <Sidebar>
+                <div className="sidebar-text">
+                    <p className="title">Nico Weingärtner</p>
+                    <p>
+                        Web-Entwicklung & JavaScript-Frameworks SS 2018
+                    </p>
+                    <p className="info">
+                        In dem WPM geht es um die Entwicklung moderner hochgradig interaktiver Webanwendungen.Bekannte Beispiele sind Google gmail, Facebook, Twitter, Instagram, Netflix und AirBnB u.v.a.m. Diese Anwendungen sind als Single Page Applications (SPA) organisiert und sind im Kern komplexe JavaScript-Anwendungen, die durch HTML und CSS ergänzt werden.
+                    </p>
+                    <p className="info">
+                        <b>Auf dieser Seite befinden sich die von mir erstellten Lösungen zu den Aufgaben der Veranstaltung</b>
+                    </p>
+                </div>
+            </Sidebar>
+                <div  className="item-container animated slideInUp">
+                <Link to="/exercise2">
+                    <div className="item">Aufgabe 2</div>
+                </Link>
+                </div>
+            </React.Fragment>
         );
     }
 }

@@ -3,10 +3,35 @@
   -moz-box-shadow: 17px 24px 88px -4px rgba(94,66,153,1)
   box-shadow: 17px 24px 88px -4px rgba(94,66,153,1)
 
+%flex-center
+  flex-direction: column
+  display: flex
+  align-items: center
+  justify-content: center
+  text-align: center
+
 body
   background-color: #B5C4F6
   font-family: 'Roboto', sans-serif
   color: #292f33
+
+
+::-webkit-scrollbar
+  width: 5px
+
+::-webkit-scrollbar-track
+  @extend %box-shadow
+  border-radius: 10px
+
+::-webkit-scrollbar-thumb
+  background: blue
+  border-radius: 5px
+
+::-webkit-scrollbar-thumb:hover
+  background: #0000b3
+
+.smoothie
+  fill: red
 
 .title
   font-weight: bold
@@ -22,6 +47,53 @@ body
   @extend %box-shadow
   grid-area: 2 / sidebar1 / 15 / sidebar2
   background-color: white
+  .preview
+    grid-row-start: 2
+    grid-row-end: span 1
+    grid-column-start: 1
+    grid-column-end: -1
+  .smoothie-info
+    @extend %flex-center
+    grid-row-start: 3
+    grid-row-end: span 1
+    grid-column-start: 1
+    grid-column-end: -1
+  .erdbeer
+    @extend %flex-center
+    grid-row-start: 5
+    grid-row-end: span 1
+    grid-column-start: 1
+    grid-column-end: -1
+  .avocado
+    @extend %flex-center
+    grid-row-start: 6
+    grid-column-start: 1
+    grid-column-end: -1
+    grid-row-end: span 1
+  .blaubeer
+    @extend %flex-center
+    grid-row-start: 7
+    grid-column-start: 1
+    grid-column-end: -1
+    grid-row-end: span 1
+  .smoothie-name
+    @extend %flex-center
+    min-height: 50px
+    grid-row-start: 8
+    grid-column-start: 1
+    grid-column-end: -1
+    grid-row-end: span 1
+  .add-smoothie
+    @extend %flex-center
+    min-height: 50px
+    grid-row-start: 9
+    grid-column-start: 1
+    grid-column-end: -1
+    grid-row-end: span 1
+
+.smoothie
+  @extend %flex-center
+  color: white
 
 .background
   @extend %box-shadow
@@ -29,7 +101,7 @@ body
   background-color: #8089D7
 
 .item-container
-
+  overflow-y: scroll
   padding: 10px
   display: grid
   grid-template-columns: repeat(4,1fr)
@@ -108,6 +180,13 @@ body
     transform: rotate(360deg)
 
 @media (max-width: 1200px)
+  .preview
+    grid-row-start: 2 !important
+    grid-column-start: 2 !important
+    grid-row-end: 4 !important
+    grid-column-end: 3 !important
+  .smoothie-info
+    grid-column-start: 3!important
   .info
     display: none!important
   .sidebar
@@ -124,7 +203,7 @@ body
     .detail-item
       grid-row-end: auto
   .container
-    height: auto
+   // height: auto
   .sidebar-text
     grid-area: 2/ 3 / 4 / 4
     display: flex
