@@ -40,7 +40,9 @@ class Smoothielist extends PureComponent {
             <div className="item-container animated bounceIn">
                 {this.state.items.map((item) => {
                     return (
-                        <Smoothie title={item.title} key={item.id} fill={`rgb(${item.red},${item.green},${item.blue})`}/>
+                        <React.Fragment>
+                        <Smoothie handleClick={() => this.removeItem(item.id)} title={item.title} key={item.id} fill={`rgb(${item.red},${item.green},${item.blue})`}/>
+                        </React.Fragment>
                     )
                 })}
 

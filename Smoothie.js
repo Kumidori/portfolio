@@ -54,7 +54,7 @@ function Smoothie(props) {
         "                      d=\"M129.92410112304685,7.343430532836916 L125.7826911230469,3.202020532836915 \" id=\"svg_19\" class=\"\"/>\n" +
         "            </g>\n" +
         "        </svg>`}} />
-        <p>{props.title}</p>
+        <p className="smoothie-title-container"><span className="smoothie-title">{props.title}</span> <button className="remove-btn" onClick={props.handleClick} >X</button></p>
         </div>
     );
 }
